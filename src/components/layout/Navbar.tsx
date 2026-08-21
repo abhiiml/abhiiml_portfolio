@@ -19,7 +19,7 @@ export function Navbar() {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Projects', href: '#projects' },
-    { name: 'AI/ML', href: '#aiml' },
+    { name: 'Certifications', href: '#certifications' },
     { name: 'Terminal', href: '#terminal' }
   ];
 
