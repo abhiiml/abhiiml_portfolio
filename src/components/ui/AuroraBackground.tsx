@@ -56,11 +56,11 @@ void main() {
 
   float noise = n1 * 0.5 + n2 * 0.3 + n3 * 0.2;
 
-  // Color palette: dark navy -> electric blue -> cyan accent
-  vec3 color1 = vec3(0.0, 0.0, 0.04);         // near black
-  vec3 color2 = vec3(0.0, 0.27, 0.60);        // electric blue #0045CC
-  vec3 color3 = vec3(0.0, 0.44, 0.95);        // #0070F3
-  vec3 color4 = vec3(0.0, 0.70, 0.90);        // cyan
+  // Color palette: obsidian canvas -> deep iris -> electric iris
+  vec3 color1 = vec3(0.110, 0.114, 0.125);    // #1c1d20 obsidian canvas
+  vec3 color2 = vec3(0.200, 0.294, 0.827);    // #334bd3 deep iris
+  vec3 color3 = vec3(0.271, 0.361, 0.914);    // #455ce9 electric iris
+  vec3 color4 = vec3(0.400, 0.478, 0.960);    // lighter iris highlight
 
   float blend = noise * 0.5 + 0.5;
 
@@ -162,8 +162,8 @@ export function AuroraBackground() {
       />
 
       {/* Bottom fade to solid bg */}
-      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#0A0A0A] to-transparent" />
+      <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#1c1d20] to-transparent" />
+      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-[#1c1d20] to-transparent" />
     </div>
   );
 }

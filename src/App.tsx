@@ -13,7 +13,7 @@ function App() {
   useScrollReveal();
   return (
     <ClickSpark
-      sparkColor="#0070F3"
+      sparkColor="#455ce9"
       sparkSize={12}
       sparkRadius={22}
       sparkCount={8}

@@ -7,15 +7,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#F9F9F7',
-        foreground: '#1C1C1C',
-        accent: '#D9534F',
-        border: '#E5E5E5',
-        muted: '#8A8A8A',
+        background: '#1c1d20',
+        foreground: '#ffffff',
+        accent: '#455ce9',
+        border: 'rgba(255,255,255,.12)',
+        muted: '#999d9e',
+        'obsidian-canvas': '#1c1d20',
+        'bone-white': '#ffffff',
+        fog: '#999d9e',
+        graphite: '#494a4d',
+        'electric-iris': '#455ce9',
+        'deep-iris': '#334bd3',
+      },
+      borderRadius: {
+        cards: '10px',
+        pill: '36.72px',
       },
       fontFamily: {
-        display: ['"Instrument Serif"', 'serif'],
-        sans: ['Geist', 'Inter', 'sans-serif'],
+        display: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
         mono: ['"Geist Mono"', 'monospace'],
       },
       animation: {
