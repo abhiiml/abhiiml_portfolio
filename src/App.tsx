@@ -3,7 +3,6 @@ import { Footer } from './components/layout/Footer';
 import { Hero } from './components/sections/Hero';
 import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
-
 import { Certifications } from './components/sections/Certifications';
 import { Terminal } from './components/Terminal';
 import { CustomCursor } from './components/ui/CustomCursor';
@@ -24,23 +23,18 @@ function App() {
       extraScale={1.1}
     >
       <div className="bg-background text-foreground min-h-screen font-sans">
-      <CustomCursor />
-      <AuroraBackground />
-      {/* Abstract noise background overlay */}
-      <div className="noise-bg"></div>
-      
-      <Navbar />
-      
-      <main>
-        <Hero />
-        <About />
-        <Projects />
-        <Certifications />
-      </main>
-
-      <Footer />
-      
-      <Terminal />
+        <CustomCursor />
+        <AuroraBackground />
+        <div className="noise-bg" />
+        <Navbar />
+        <main>
+          <div className="scroll-section"><Hero /></div>
+          <div className="scroll-section"><About /></div>
+          <div className="scroll-section"><Projects /></div>
+          <div className="scroll-section"><Certifications /></div>
+        </main>
+        <Footer />
+        <Terminal />
       </div>
     </ClickSpark>
   );
