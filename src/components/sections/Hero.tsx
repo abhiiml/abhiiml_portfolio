@@ -1,83 +1,51 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolio';
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
-
-// Transparent portrait PNG embedded as base64 so no external image path is required.
-const HERO_PORTRAIT = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjIAAAJYCAMAAABPffxXAAABIF{BASE64}';
+// @ts-ignore
+import profile1 from '../../assets/images/profile-1.jpg';
 
 const HERO_ROLES = ['AI Developer', 'ML Engineer', 'CSE Student', 'Builder'];
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
-
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.hero-enter', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, delay: 0.15, ease: 'power4.out' });
+      gsap.fromTo('.hero-enter', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, delay: 0.1, ease: 'power4.out' });
     }, ref);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={ref} id="home" className="min-h-screen flex items-center pt-20 pb-8 md:pt-24 md:pb-10">
-      <div className="page-shell w-full">
-        <div className="hero-enter relative min-h-[calc(100vh-7rem)] md:min-h-[calc(100vh-8rem)] overflow-hidden rounded-[24px] border border-white/15 bg-[#aeb2b3]">
-          {/* Minimal header inside the hero card */}
-          <div className="absolute inset-x-0 top-0 z-30 flex items-start justify-between px-5 py-4 md:px-7 md:py-5 text-[10px] md:text-[11px] text-black/65">
-            <div>
-              <p className="font-medium">Abhijit Pandey</p>
-              <p className="mt-1 uppercase tracking-[0.12em] text-[8px] md:text-[9px]">© {new Date().getFullYear()} / ABHIJIT PANDEY</p>
-            </div>
-            <p className="hidden md:block uppercase tracking-[0.12em] font-medium">B.Tech CSE · AI / ML</p>
-          </div>
+    <section ref={ref} id="home" className="relative min-h-screen overflow-hidden flex items-end pt-0 pb-0">
+      <div className="absolute inset-0 z-0">
+        <img src={profile1} alt="Abhijit Pandey" className="w-full h-full object-cover object-center grayscale" />
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10" />
+      </div>
 
-          {/* Editorial side information */}
-          <div className="absolute left-6 md:left-12 top-1/2 -translate-y-1/2 z-20 max-w-[150px] text-black/65">
-            <p className="uppercase tracking-[0.14em] text-[9px] font-semibold">01 — Intro</p>
-            <p className="mt-4 text-sm leading-tight">Developer &<br />AI/ML student</p>
-          </div>
-
-          <div className="absolute right-6 md:right-12 top-[42%] z-20 max-w-[170px] text-black/65">
-            <span className="block text-xl mb-3">↘</span>
-            <p className="text-sm leading-tight">Building intelligent<br />digital experiences</p>
-          </div>
-
-          {/* Transparent PNG — no Lanyard wrapper/background, so the portrait sits directly in the hero. */}
-          <div className="absolute inset-0 z-10 flex items-end justify-center pointer-events-none">
-            <img
-              src={HERO_PORTRAIT}
-              alt="Abhijit Pandey"
-              className="block h-[74%] md:h-[82%] lg:h-[88%] w-auto max-w-[88%] object-contain object-bottom select-none"
-              draggable={false}
-            />
-          </div>
-
-          {/* Location pill */}
-          <div className="absolute left-0 top-[50%] z-30 -translate-y-1/2 hidden sm:flex items-center bg-[#111] text-white rounded-r-full pl-8 pr-3 py-2.5 gap-5 shadow-lg">
-            <div className="text-[9px] leading-tight"><span className="text-white/45">Located in</span><br />India</div>
-            <div className="w-8 h-8 rounded-full border border-white/25 flex items-center justify-center text-sm">◎</div>
-          </div>
-
-          {/* Giant editorial name overlaps the portrait like the reference. */}
-          <div className="absolute left-1/2 bottom-[-1.5vw] z-20 -translate-x-1/2 w-[105%] whitespace-nowrap text-center text-[clamp(64px,11.5vw,190px)] leading-[0.78] font-light tracking-[-0.065em] text-white pointer-events-none select-none">
-            Abhijit Pandey
-          </div>
-
-          <div className="absolute bottom-5 left-1/2 z-30 -translate-x-1/2 flex items-center gap-3 text-[8px] uppercase tracking-[0.16em] text-black/55 whitespace-nowrap">
-            Scroll to explore <span className="w-8 h-px bg-black/30" />
-          </div>
-
-          <motion.a
-            href="#about"
-            whileHover={{ scale: 1.08 }}
-            className="absolute bottom-5 right-5 md:right-7 z-30 w-12 h-12 rounded-full bg-black text-white flex items-center justify-center"
-            aria-label="Scroll to about"
-          >
-            <ArrowDownRight size={18} />
-          </motion.a>
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-6 md:pb-8">
+        <div className="hero-enter absolute left-6 md:left-10 lg:left-16 top-[28%] max-w-[180px]">
+          <p className="section-label mb-5">01 — INTRO</p>
+          <p className="text-sm md:text-base leading-snug text-white/85">Developer &<br />AI/ML student</p>
+        </div>
+        <div className="hero-enter absolute right-6 md:right-10 lg:right-16 top-[36%] max-w-[190px] text-right">
+          <span className="text-xl text-white/80">↘</span>
+          <p className="text-sm md:text-base leading-snug text-white/85 mt-4">Building intelligent<br />digital experiences</p>
+        </div>
+        <div className="hero-enter mb-1 md:mb-0">
+          <p className="section-label mb-2">AI / ML · Software · Creative Technology</p>
+          <h1 className="font-sans font-light tracking-[-0.07em] leading-[0.78] text-[clamp(72px,15vw,230px)] text-white whitespace-nowrap">Abhijit Pandey</h1>
         </div>
       </div>
+
+      <div className="absolute top-6 left-6 md:left-10 lg:left-16 z-20 hero-enter">
+        <p className="text-sm md:text-base text-white font-medium">Abhijit Pandey</p>
+        <p className="text-[9px] md:text-[10px] uppercase tracking-[0.12em] text-white/60 mt-1">© 2026 / ABHIJIT PANDEY</p>
+      </div>
+      <div className="absolute top-7 left-1/2 -translate-x-1/2 z-20 hidden md:block section-label !text-white/60">B.TECH CSE · AI / ML</div>
+      <motion.a href="#about" whileHover={{ scale: 1.05 }} className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 text-[10px] uppercase tracking-[0.12em] text-white/70" aria-label="Scroll to about">Scroll to explore <span className="w-12 h-px bg-white/50" /></motion.a>
+      <div className="fixed bottom-6 left-6 hidden md:block section-label !text-white/30 z-30">{HERO_ROLES.join(' · ')}</div>
     </section>
   );
 }
