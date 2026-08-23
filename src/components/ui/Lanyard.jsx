@@ -69,34 +69,10 @@ export default function Lanyard({
           />
         </Physics>
         <Environment blur={0.75}>
-          <Lightformer
-            intensity={2}
-            color="white"
-            position={[0, -1, 5]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={3}
-            color="white"
-            position={[-1, -1, 1]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={3}
-            color="white"
-            position={[1, 1, 1]}
-            rotation={[0, 0, Math.PI / 3]}
-            scale={[100, 0.1, 1]}
-          />
-          <Lightformer
-            intensity={10}
-            color="white"
-            position={[-10, 0, 14]}
-            rotation={[0, Math.PI / 2, Math.PI / 3]}
-            scale={[100, 10, 1]}
-          />
+          <Lightformer intensity={2} color="white" position={[0, -1, 5]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+          <Lightformer intensity={3} color="white" position={[-1, -1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+          <Lightformer intensity={3} color="white" position={[1, 1, 1]} rotation={[0, 0, Math.PI / 3]} scale={[100, 0.1, 1]} />
+          <Lightformer intensity={10} color="white" position={[-10, 0, 14]} rotation={[0, Math.PI / 2, Math.PI / 3]} scale={[100, 10, 1]} />
         </Environment>
       </Canvas>
     </div>
@@ -178,9 +154,7 @@ function Band({
 
   useEffect(() => {
     return () => {
-      if (cardMap && cardMap !== materials.base.map) {
-        cardMap.dispose();
-      }
+      if (cardMap && cardMap !== materials.base.map) cardMap.dispose();
     };
   }, [cardMap, materials.base.map]);
 
@@ -194,10 +168,7 @@ function Band({
   useRopeJoint(fixed, j1, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j1, j2, [[0, 0, 0], [0, 0, 0], 1]);
   useRopeJoint(j2, j3, [[0, 0, 0], [0, 0, 0], 1]);
-  useSphericalJoint(j3, card, [
-    [0, 0, 0],
-    [0, 1.5, 0]
-  ]);
+  useSphericalJoint(j3, card, [[0, 0, 0], [0, 1.5, 0]]);
 
   useEffect(() => {
     if (hovered) {
@@ -208,10 +179,27 @@ function Band({
     }
   }, [hovered, dragged]);
 
+  // Release the drag even when the pointer leaves the canvas/card.
+  // This prevents the kinematic body from continuing to follow state.pointer.
+  useEffect(() => {
+    if (!dragged) return;
+
+    const releaseDrag = () => drag(false);
+    window.addEventListener('pointerup', releaseDrag);
+    window.addEventListener('pointercancel', releaseDrag);
+    window.addEventListener('blur', releaseDrag);
+
+    return () => {
+      window.removeEventListener('pointerup', releaseDrag);
+      window.removeEventListener('pointercancel', releaseDrag);
+      window.removeEventListener('blur', releaseDrag);
+    };
+  }, [dragged]);
+
   const endDrag = (e) => {
-    if (typeof e?.releasePointerCapture === 'function' && e.pointerId != null) {
+    if (e?.pointerId != null && e?.target?.releasePointerCapture) {
       try {
-        e.releasePointerCapture(e.pointerId);
+        e.target.releasePointerCapture(e.pointerId);
       } catch {
         /* capture already released */
       }
@@ -285,8 +273,11 @@ function Band({
             onPointerDown={(e) => {
               if (!card.current) return;
               e.stopPropagation();
-              if (typeof e.setPointerCapture === 'function') {
-                e.setPointerCapture(e.pointerId);
+              // R3F exposes pointer capture through the native event target.
+              // The previous code called setPointerCapture on the R3F event itself,
+              // which is not reliable and allowed the drag state to remain active.
+              if (e.pointerId != null && e.target?.setPointerCapture) {
+                e.target.setPointerCapture(e.pointerId);
               }
               drag(new THREE.Vector3().copy(e.point).sub(vec.copy(card.current.translation())));
             }}
