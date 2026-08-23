@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { portfolioData } from './data/portfolio';
 import './portfolio-polish.css';
 // @ts-ignore local image asset
-import profile1 from './assets/images/profile-1.jpg';
+import profile1 from './assets/images/profile-1.png';
 // @ts-ignore local image asset
 import profile2 from './assets/images/profile-2.jpg';
 // @ts-ignore local image asset
