@@ -1,11 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolio';
-import { ArrowDownRight, ArrowUpRight } from 'lucide-react';
 import gsap from 'gsap';
-import Shuffle from '../ui/Shuffle';
-// @ts-ignore
-import Lanyard from '../ui/Lanyard';
 // @ts-ignore
 import profile1 from '../../assets/images/profile-1.jpg';
 
@@ -15,32 +11,40 @@ export function Hero() {
   const ref = useRef<HTMLElement>(null);
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.hero-enter', { opacity: 0, y: 28 }, { opacity: 1, y: 0, duration: 1, stagger: 0.12, delay: 0.15, ease: 'power4.out' });
+      gsap.fromTo('.hero-enter', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.9, stagger: 0.1, delay: 0.1, ease: 'power4.out' });
     }, ref);
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={ref} id="home" className="min-h-screen flex items-center pt-28 pb-16">
-      <div className="page-shell w-full grid lg:grid-cols-[1.15fr_.85fr] gap-12 lg:gap-4 items-center">
-        <div className="hero-enter">
-          <p className="section-label mb-7">AI / ML · Software · Creative Technology</p>
-          <h1 className="display-title"><span className="block"><Shuffle text="ABHIJIT" /></span><span className="block text-[var(--iris)]"><Shuffle text="PANDEY" /></span></h1>
-          <p className="body-copy max-w-xl mt-9">{portfolioData.personal.role} building AI systems, intelligent products and interfaces that feel as good as they function.</p>
-          <div className="flex flex-wrap items-center gap-4 mt-9"><a href="#projects" className="primary-pill">Explore work <ArrowUpRight size={15} className="ml-2" /></a><a href="#contact" className="ghost-link">Let's talk →</a></div>
-          <div className="flex flex-wrap gap-3 mt-14 max-w-xl">
-            <div className="pill-badge"><span className="text-white">10+</span><span className="text-[var(--ash)]">Projects</span></div>
-            <div className="pill-badge"><span className="text-white">AI/ML</span><span className="text-[var(--ash)]">Focus</span></div>
-            <div className="pill-badge"><span className="w-1.5 h-1.5 rounded-full bg-[var(--iris)]" /><span className="text-white">Open for opportunities</span></div>
-          </div>
+    <section ref={ref} id="home" className="relative min-h-screen overflow-hidden flex items-end pt-0 pb-0">
+      <div className="absolute inset-0 z-0">
+        <img src={profile1} alt="Abhijit Pandey" className="w-full h-full object-cover object-center grayscale" />
+        <div className="absolute inset-0 bg-black/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10" />
+      </div>
+
+      <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-6 md:pb-8">
+        <div className="hero-enter absolute left-6 md:left-10 lg:left-16 top-[28%] max-w-[180px]">
+          <p className="section-label mb-5">01 — INTRO</p>
+          <p className="text-sm md:text-base leading-snug text-white/85">Developer &<br />AI/ML student</p>
         </div>
-        <div className="hero-enter relative min-h-[520px] lg:min-h-[680px] flex items-center justify-center overflow-visible">
-          <div className="absolute inset-x-0 bottom-0 h-[72%] border-l border-white/10 opacity-50" />
-          <div className="section-label absolute top-8 right-0 !text-white/30">01 — Identity</div>
-          <div className="w-full h-[600px] relative z-10"><Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} frontImage={profile1} imageFit="cover" /></div>
-          <motion.a href="#about" whileHover={{ scale: 1.04 }} className="absolute bottom-5 right-3 w-14 h-14 rounded-full bg-[var(--iris)] flex items-center justify-center z-20 transition-colors hover:bg-[var(--deep-iris)]" aria-label="Scroll to about"><ArrowDownRight size={20} /></motion.a>
+        <div className="hero-enter absolute right-6 md:right-10 lg:right-16 top-[36%] max-w-[190px] text-right">
+          <span className="text-xl text-white/80">↘</span>
+          <p className="text-sm md:text-base leading-snug text-white/85 mt-4">Building intelligent<br />digital experiences</p>
+        </div>
+        <div className="hero-enter mb-1 md:mb-0">
+          <p className="section-label mb-2">AI / ML · Software · Creative Technology</p>
+          <h1 className="font-sans font-light tracking-[-0.07em] leading-[0.78] text-[clamp(72px,15vw,230px)] text-white whitespace-nowrap">Abhijit Pandey</h1>
         </div>
       </div>
+
+      <div className="absolute top-6 left-6 md:left-10 lg:left-16 z-20 hero-enter">
+        <p className="text-sm md:text-base text-white font-medium">Abhijit Pandey</p>
+        <p className="text-[9px] md:text-[10px] uppercase tracking-[0.12em] text-white/60 mt-1">© 2026 / ABHIJIT PANDEY</p>
+      </div>
+      <div className="absolute top-7 left-1/2 -translate-x-1/2 z-20 hidden md:block section-label !text-white/60">B.TECH CSE · AI / ML</div>
+      <motion.a href="#about" whileHover={{ scale: 1.05 }} className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3 text-[10px] uppercase tracking-[0.12em] text-white/70" aria-label="Scroll to about">Scroll to explore <span className="w-12 h-px bg-white/50" /></motion.a>
       <div className="fixed bottom-6 left-6 hidden md:block section-label !text-white/30 z-30">{HERO_ROLES.join(' · ')}</div>
     </section>
   );
