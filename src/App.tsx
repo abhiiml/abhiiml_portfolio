@@ -5,8 +5,8 @@ import { About } from './components/sections/About';
 import { Projects } from './components/sections/Projects';
 import { Certifications } from './components/sections/Certifications';
 import { Terminal } from './components/Terminal';
-import { CustomCursor } from './components/ui/CustomCursor';
 import { AuroraBackground } from './components/ui/AuroraBackground';
+import TargetCursor from './components/ui/TargetCursor';
 import { useScrollReveal } from './hooks/useScrollReveal';
 import ClickSpark from './components/ui/ClickSpark';
 
@@ -23,7 +23,7 @@ function App() {
       extraScale={1.1}
     >
       <div className="bg-background text-foreground min-h-screen font-sans">
-        <CustomCursor />
+        <TargetCursor spinDuration={2} hideDefaultCursor={true} parallaxOn={true} cursorColor="#ffffff" cursorColorOnTarget="#0070F3" />
         <AuroraBackground />
         <div className="noise-bg" />
         <Navbar />
