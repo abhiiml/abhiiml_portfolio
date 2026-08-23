@@ -69,9 +69,12 @@ export function Terminal() {
   return (
     <>
       {/* Floating Action Button */}
-      <button 
+      <button
+        id="terminal"
         onClick={() => setIsOpen(!isOpen)}
         className="fixed bottom-6 right-6 p-4 bg-foreground text-background rounded-full shadow-lg hover:scale-105 transition-transform z-50 flex items-center justify-center group"
+        aria-expanded={isOpen}
+        aria-label="Open terminal"
       >
         <TerminalIcon size={24} className="group-hover:rotate-12 transition-transform" />
       </button>

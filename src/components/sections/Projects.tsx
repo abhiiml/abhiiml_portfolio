@@ -63,7 +63,7 @@ export function Projects() {
                       </svg>
                     </a>
                   )}
-                  {project.liveUrl && (
+                  {project.liveUrl && project.liveUrl !== '#' && (
                     <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded bg-[#222222] flex items-center justify-center text-muted hover:text-white hover:bg-[#333333] transition-colors" data-cursor="hover">
                       <ArrowUpRight size={14} />
                     </a>

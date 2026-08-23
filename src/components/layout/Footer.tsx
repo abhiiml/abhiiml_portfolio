@@ -29,12 +29,14 @@ export function Footer() {
             >
               <User size={20} />
             </a>
-            <a 
-              href={`mailto:${portfolioData.personal.email}`} 
-              className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-white transition-colors"
-            >
-              <Mail size={20} />
-            </a>
+            {portfolioData.personal.email && !portfolioData.personal.email.includes('example.com') && (
+              <a
+                href={`mailto:${portfolioData.personal.email}`}
+                className="w-12 h-12 rounded-full border border-border flex items-center justify-center hover:bg-foreground hover:text-white transition-colors"
+              >
+                <Mail size={20} />
+              </a>
+            )}
           </div>
           
         </div>

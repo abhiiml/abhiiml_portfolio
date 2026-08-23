@@ -113,13 +113,17 @@ interface RotatingTextProps {
 
 export function RotatingText({ words, className = '', interval = 2500 }: RotatingTextProps) {
   const [index, setIndex] = useState(0);
+  const wordsRef = useRef(words);
+  wordsRef.current = words;
+  const wordsKey = words.join('\0');
 
   useEffect(() => {
+    if (wordsRef.current.length === 0) return;
     const t = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
+      setIndex((prev) => (prev + 1) % Math.max(1, wordsRef.current.length));
     }, interval);
     return () => clearInterval(t);
-  }, [words, interval]);
+  }, [wordsKey, interval]);
 
   return (
     <span className={`inline-block overflow-hidden relative ${className}`}>
