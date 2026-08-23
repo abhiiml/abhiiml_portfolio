@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText, RotatingText, BlurText } from '../ui/TextAnimations';
 import { CanvasErrorBoundary } from '../ui/CanvasErrorBoundary';
+import Shuffle from '../ui/Shuffle';
 // @ts-ignore
 import Lanyard from '../ui/Lanyard';
 // @ts-ignore
@@ -45,9 +46,8 @@ export function Hero() {
             <div className="hero-title opacity-0">
               <p className="font-mono text-accent text-xs mb-5 uppercase tracking-widest flex items-center gap-2"><Zap size={11} /> &gt; INITIALIZING...</p>
               <h1 className="text-6xl md:text-8xl lg:text-[6.5rem] font-display font-bold leading-[0.88] tracking-tight text-foreground">
-                <SplitText text="ABHIJIT" charDelay={50} />
-                <br />
-                <SplitText text="PANDEY" charDelay={50} className="text-accent" />
+                <Shuffle text="ABHIJIT" tag="span" className="block" shuffleDirection="right" duration={0.35} shuffleTimes={2} stagger={0.035} triggerOnce={true} triggerOnHover={true} />
+                <Shuffle text="PANDEY" tag="span" className="block text-accent" shuffleDirection="right" duration={0.35} shuffleTimes={2} stagger={0.035} triggerOnce={true} triggerOnHover={true} />
               </h1>
             </div>
 
@@ -65,29 +65,19 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Full-viewport Lanyard canvas so dragging can use the entire screen instead of only the right grid column. */}
           <div className="lg:col-span-5 hero-image-panel opacity-0 relative overflow-visible">
             <div className="relative w-full h-[420px] md:h-[520px] overflow-visible">
               <div className="absolute bottom-0 -top-[200px] sm:-top-[260px] lg:-top-[320px] left-1/2 -translate-x-1/2 w-screen">
-                <CanvasErrorBoundary
-                  fallback={<img src={profile1} alt="Abhijit Pandey" className="w-full h-full object-cover object-center opacity-90" />}
-                >
+                <CanvasErrorBoundary fallback={<img src={profile1} alt="Abhijit Pandey" className="w-full h-full object-cover object-center opacity-90" />}>
                   <Lanyard position={[0, 0, 20]} gravity={[0, -40, 0]} frontImage={profile1} imageFit="cover" />
                 </CanvasErrorBoundary>
               </div>
-
               <div className="absolute bottom-5 left-5 right-5 flex justify-between items-end z-20 pointer-events-none">
-                <div>
-                  <p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">[ DRAG ME ]</p>
-                  <p className="font-mono text-xs text-white/60 uppercase">Abhijit Pandey</p>
-                </div>
+                <div><p className="font-mono text-[10px] text-accent uppercase tracking-widest mb-1">[ DRAG ME ]</p><p className="font-mono text-xs text-white/60 uppercase">Abhijit Pandey</p></div>
                 <p className="font-mono text-[10px] text-muted">ID CARD</p>
               </div>
             </div>
-
-            <motion.a href="#about" className="absolute -bottom-6 -right-6 w-12 h-12 bg-accent flex items-center justify-center cursor-pointer z-20" whileHover={{ scale: 1.1 }} data-cursor="hover" aria-label="Scroll to about">
-              <ArrowDownRight size={20} className="text-white" />
-            </motion.a>
+            <motion.a href="#about" className="absolute -bottom-6 -right-6 w-12 h-12 bg-accent flex items-center justify-center cursor-pointer z-20" whileHover={{ scale: 1.1 }} data-cursor="hover" aria-label="Scroll to about"><ArrowDownRight size={20} className="text-white" /></motion.a>
           </div>
         </div>
       </div>
