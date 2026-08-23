@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { portfolioData } from '../../data/portfolio';
 import gsap from 'gsap';
 // @ts-ignore
-import profile1 from '../../assets/images/profile-1.jpg';
+import heroImage from '../../assets/images/Removal-154.png';
 
 const HERO_ROLES = ['AI Developer', 'ML Engineer', 'CSE Student', 'Builder'];
 
@@ -18,10 +18,9 @@ export function Hero() {
 
   return (
     <section ref={ref} id="home" className="relative min-h-screen overflow-hidden flex items-end pt-0 pb-0">
-      <div className="absolute inset-0 z-0">
-        <img src={profile1} alt="Abhijit Pandey" className="w-full h-full object-cover object-center grayscale" />
-        <div className="absolute inset-0 bg-black/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10" />
+      <div className="absolute inset-0 z-0 bg-black">
+        <img src={heroImage} alt="Abhijit Pandey" className="absolute inset-0 w-full h-full object-contain object-center" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/10 pointer-events-none" />
       </div>
 
       <div className="relative z-10 w-full px-6 md:px-10 lg:px-16 pb-6 md:pb-8">
