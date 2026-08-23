@@ -1,1 +1,17 @@
-.shuffle-parent{display:inline-block;white-space:normal;word-wrap:break-word;will-change:transform;line-height:1;visibility:hidden}.shuffle-parent.is-ready{visibility:visible}.shuffle-char{line-height:1;display:inline-block;text-align:center}
+.shuffle-parent {
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  line-height: 1;
+  vertical-align: baseline;
+  will-change: transform;
+}
+
+.shuffle-char {
+  display: inline-block;
+  min-width: 0.02em;
+  line-height: 1;
+  text-align: center;
+  white-space: pre;
+  will-change: contents;
+}
