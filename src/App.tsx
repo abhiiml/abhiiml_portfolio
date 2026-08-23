@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { portfolioData } from './data/portfolio';
+// @ts-ignore local image asset
 import profile1 from './assets/images/profile-1.jpg';
+// @ts-ignore local image asset
 import profile2 from './assets/images/profile-2.jpg';
+// @ts-ignore local image asset
 import profile3 from './assets/images/profile-3.jpg';
 
 function Arrow({ diagonal = true }: { diagonal?: boolean }) {
@@ -68,11 +71,7 @@ function App() {
       <main>
         <section id="home" className="hero-section">
           <div className="hero-card">
-            <div className="hero-card-top">
-              <span className="micro">© 2026 / ABHIJIT PANDEY</span>
-              <span className="micro desktop-only">B.TECH CSE · AI / ML</span>
-              <span className="micro">India</span>
-            </div>
+            <div className="hero-card-top"><span className="micro">© 2026 / ABHIJIT PANDEY</span><span className="micro desktop-only">B.TECH CSE · AI / ML</span><span className="micro">India</span></div>
             <div className="hero-copy-left"><span className="micro">01 — INTRO</span><p>Developer &amp;<br />AI/ML student</p></div>
             <div className="hero-copy-right"><span className="tiny-arrow">↘</span><p>Building intelligent<br />digital experiences</p></div>
             <div className="hero-image-wrap"><img src={profile1} alt="Abhijit Pandey" className="hero-image" /></div>
@@ -101,19 +100,9 @@ function App() {
           <div className="credential-list">{portfolioData.certifications.map((cert, index) => <a href={cert.url} target="_blank" rel="noreferrer" key={`${cert.name}-${index}`} className="credential-row"><span>0{index + 1}</span><div className="credential-logo"><img src={cert.image} alt="" /></div><div><h3>{cert.name}</h3><p>{cert.organization}</p></div><Arrow /></a>)}</div>
         </section>
 
-        <section className="skills-section dark-section">
-          <Reveal><span className="micro">05 — TOOLKIT</span><h2>Made with<br /><em>these.</em></h2></Reveal>
-          <div className="skills-grid">{Object.entries(portfolioData.skills).map(([group, skills]) => <Reveal key={group} className="skill-group"><span className="micro">{group.toUpperCase()}</span><div>{skills.map((skill) => <span key={skill}>{skill}</span>)}</div></Reveal>)}</div>
-        </section>
+        <section className="skills-section dark-section"><Reveal><span className="micro">05 — TOOLKIT</span><h2>Made with<br /><em>these.</em></h2></Reveal><div className="skills-grid">{Object.entries(portfolioData.skills).map(([group, skills]) => <Reveal key={group} className="skill-group"><span className="micro">{group.toUpperCase()}</span><div>{skills.map((skill) => <span key={skill}>{skill}</span>)}</div></Reveal>)}</div></section>
 
-        <section id="contact" className="contact-section">
-          <Reveal className="contact-card">
-            <div className="contact-top"><span className="micro">06 — CONTACT</span><span className="status"><i /> Open to opportunities</span></div>
-            <h2>Let's make<br /><em>something.</em></h2><p>Open to internships, collaborations and interesting technical problems.</p>
-            <div className="contact-actions"><a href={`mailto:${portfolioData.personal.email}`} className="big-button">Email me <Arrow /></a><a href={`https://github.com/${portfolioData.personal.github}`} className="text-link" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href={portfolioData.personal.linkedin} className="text-link" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div>
-            <div className="contact-footer"><span>© 2026 Abhijit Pandey</span><span>Built with curiosity</span></div>
-          </Reveal>
-        </section>
+        <section id="contact" className="contact-section"><Reveal className="contact-card"><div className="contact-top"><span className="micro">06 — CONTACT</span><span className="status"><i /> Open to opportunities</span></div><h2>Let's make<br /><em>something.</em></h2><p>Open to internships, collaborations and interesting technical problems.</p><div className="contact-actions"><a href={`mailto:${portfolioData.personal.email}`} className="big-button">Email me <Arrow /></a><a href={`https://github.com/${portfolioData.personal.github}`} className="text-link" target="_blank" rel="noreferrer">GitHub <Arrow /></a><a href={portfolioData.personal.linkedin} className="text-link" target="_blank" rel="noreferrer">LinkedIn <Arrow /></a></div><div className="contact-footer"><span>© 2026 Abhijit Pandey</span><span>Built with curiosity</span></div></Reveal></section>
       </main>
     </div>
   );
