@@ -286,7 +286,7 @@ function App() {
             <MaskTitle line1="Let's make" line2="something." />
             <p>Open to internships, collaborations and interesting technical problems.</p>
             <div className="contact-actions">
-              <a href={`mailto:${portfolioData.personal.email}`} className="big-button">
+              <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${portfolioData.personal.email}`} target="_blank" rel="noreferrer" className="big-button">
                 Email me <Arrow />
               </a>
               <a href={`https://github.com/${portfolioData.personal.github}`} className="text-link" target="_blank" rel="noreferrer">

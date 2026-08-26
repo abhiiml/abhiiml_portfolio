@@ -27,7 +27,7 @@
 @media (max-width: 600px) {
   .hero-section { padding: 0 !important; }
   .hero-card { width: 100%; min-height: 100svh; border-radius: 0; }
-  .hero-card-top { top: 18px; left: 18px; right: 18px; }
+  .hero-card-top { top: 64px; left: 18px; right: 18px; }
   .hero-copy-left { top: 25%; left: 6%; }
   .hero-copy-right { top: 29%; right: 6%; }
   .hero-image-wrap { width: 92vw; height: 72%; }
