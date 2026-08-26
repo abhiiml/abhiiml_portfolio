@@ -5,7 +5,7 @@ export const portfolioData = {
     bio: "Developer, Learner, and Builder interested in Artificial Intelligence, Machine Learning, and software development. Preparing for internships and jobs, and passionate about building real projects.",
     github: "abhiiml",
     linkedin: "https://www.linkedin.com/in/abhijitpandey456/",
-    email: "abhijit@example.com",
+    email: "abhijitayush456@gmail.com",
   },
   projects: [
     {
