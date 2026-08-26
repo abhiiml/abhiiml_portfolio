@@ -1,7 +1,9 @@
-import { useRef, useState, useCallback, useEffect } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import './LineSidebar.css';
 
-const FALLOFF_CURVES = {
+type FalloffType = 'linear' | 'smooth' | 'sharp';
+
+const FALLOFF_CURVES: Record<FalloffType, (p: number) => number> = {
   linear: p => p,
   smooth: p => p * p * (3 - 2 * p),
   sharp: p => p * p * p
@@ -22,7 +24,29 @@ const DEFAULT_ITEMS = [
   'Support'
 ];
 
-const LineSidebar = ({
+interface LineSidebarProps {
+  items?: string[];
+  accentColor?: string;
+  textColor?: string;
+  markerColor?: string;
+  showIndex?: boolean;
+  showMarker?: boolean;
+  proximityRadius?: number;
+  maxShift?: number;
+  falloff?: FalloffType;
+  markerLength?: number;
+  markerGap?: number;
+  tickScale?: number;
+  scaleTick?: boolean;
+  itemGap?: number;
+  fontSize?: number;
+  smoothing?: number;
+  defaultActive?: number | null;
+  onItemClick?: (index: number, label: string) => void;
+  className?: string;
+}
+
+const LineSidebar: React.FC<LineSidebarProps> = ({
   items = DEFAULT_ITEMS,
   accentColor = '#A855F7',
   textColor = '#c4c4c4',
@@ -43,20 +67,20 @@ const LineSidebar = ({
   onItemClick,
   className = ''
 }) => {
-  const listRef = useRef(null);
-  const itemRefs = useRef([]);
-  const targetsRef = useRef([]);
-  const currentRef = useRef([]);
-  const rafRef = useRef(null);
-  const lastRef = useRef(0);
-  const activeRef = useRef(defaultActive);
-  const smoothingRef = useRef(smoothing);
-  const [activeIndex, setActiveIndex] = useState(defaultActive);
+  const listRef = useRef<HTMLUListElement>(null);
+  const itemRefs = useRef<(HTMLLIElement | null)[]>([]);
+  const targetsRef = useRef<number[]>([]);
+  const currentRef = useRef<number[]>([]);
+  const rafRef = useRef<number | null>(null);
+  const lastRef = useRef<number>(0);
+  const activeRef = useRef<number | null>(defaultActive);
+  const smoothingRef = useRef<number>(smoothing);
+  const [activeIndex, setActiveIndex] = useState<number | null>(defaultActive);
 
   activeRef.current = activeIndex;
   smoothingRef.current = smoothing;
 
-  const runFrame = useCallback(now => {
+  const runFrame = useCallback((now: number) => {
     const dt = Math.min((now - lastRef.current) / 1000, 0.05);
     lastRef.current = now;
     const tau = Math.max(smoothingRef.current, 1) / 1000;
@@ -86,7 +110,7 @@ const LineSidebar = ({
     rafRef.current = requestAnimationFrame(runFrame);
   }, [runFrame]);
 
-  const handlePointerMove = useCallback(e => {
+  const handlePointerMove = useCallback((e: React.PointerEvent<HTMLUListElement>) => {
     const list = listRef.current;
     if (!list) return;
     const rect = list.getBoundingClientRect();
@@ -108,7 +132,7 @@ const LineSidebar = ({
     startLoop();
   }, [startLoop]);
 
-  const handleClick = useCallback((index, label) => {
+  const handleClick = useCallback((index: number, label: string) => {
     setActiveIndex(index);
     onItemClick?.(index, label);
   }, [onItemClick]);
@@ -136,7 +160,7 @@ const LineSidebar = ({
         '--item-gap': `${itemGap}px`,
         '--font-size': `${fontSize}rem`,
         '--smoothing': `${smoothing}ms`
-      } as any}
+      } as React.CSSProperties}
     >
       <ul
         ref={listRef}

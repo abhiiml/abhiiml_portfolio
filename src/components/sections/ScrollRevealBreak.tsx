@@ -1,3 +1,4 @@
+// @ts-ignore
 import ScrollExpand from '../ui/ScrollExpand';
 // @ts-ignore
 import profile4 from '../../assets/images/profile-4.jpg';

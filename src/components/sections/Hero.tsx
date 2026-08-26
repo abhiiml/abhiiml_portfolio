@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { portfolioData } from '../../data/portfolio';
 import gsap from 'gsap';
 // @ts-ignore
 import heroImage from '../../assets/images/Removal-154.png';

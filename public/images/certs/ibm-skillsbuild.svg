@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <rect width="120" height="120" rx="60" fill="#001d6c"/>
+  <circle cx="60" cy="60" r="54" fill="#0f62fe" stroke="#4589ff" stroke-width="2"/>
+  
+  <!-- IBM Brain / AI Network Matrix -->
+  <g transform="translate(60,48)">
+    <circle cx="0" cy="0" r="16" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="3,3"/>
+    <!-- Node connections -->
+    <circle cx="-12" cy="-6" r="3.5" fill="#a6c8ff"/>
+    <circle cx="12" cy="-6" r="3.5" fill="#a6c8ff"/>
+    <circle cx="0" cy="14" r="3.5" fill="#a6c8ff"/>
+    <circle cx="0" cy="-14" r="4" fill="#ffffff"/>
+    
+    <line x1="-12" y1="-6" x2="12" y2="-6" stroke="#ffffff" stroke-width="2"/>
+    <line x1="-12" y1="-6" x2="0" y2="14" stroke="#ffffff" stroke-width="2"/>
+    <line x1="12" y1="-6" x2="0" y2="14" stroke="#ffffff" stroke-width="2"/>
+    <line x1="0" y1="-14" x2="0" y2="0" stroke="#ffffff" stroke-width="2"/>
+  </g>
+  
+  <!-- IBM SKILLSBUILD -->
+  <rect x="12" y="86" width="96" height="20" rx="10" fill="#001141"/>
+  <text x="60" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="7.5" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">IBM SKILLSBUILD</text>
+</svg>

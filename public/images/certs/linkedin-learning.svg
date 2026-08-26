@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <rect width="120" height="120" rx="60" fill="#004182"/>
+  <circle cx="60" cy="60" r="54" fill="#0a66c2" stroke="#70b5f9" stroke-width="2"/>
+  
+  <!-- LinkedIn Learning 'in' and graduation cap / play icon -->
+  <g transform="translate(60,48)">
+    <rect x="-18" y="-18" width="36" height="36" rx="6" fill="#ffffff"/>
+    <text x="0" y="8" font-family="-apple-system, system-ui, sans-serif" font-size="24" font-weight="800" fill="#0a66c2" text-anchor="middle">in</text>
+  </g>
+  
+  <!-- LINKEDIN LEARNING -->
+  <rect x="10" y="86" width="100" height="20" rx="10" fill="#002d5b"/>
+  <text x="60" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="6.8" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="0.4">LINKEDIN LEARNING</text>
+</svg>
