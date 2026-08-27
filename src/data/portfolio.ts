@@ -70,31 +70,31 @@ export const portfolioData = {
       name: "AI DevOps Analyst",
       organization: "NASSCOM / Skill India",
       image: "/images/certs/nasscom-skillindia.svg",
-      url: "https://lnkd.in/dhaCkPTV"
+      url: "https://api-fe.skillindiadigital.gov.in/api/registry-course/getCertificatePresignedUrl/2026062503285286-6d136b29-9b3a-4b26-9d76-b05369cb648c"
     },
     {
       name: "Elements of AI",
       organization: "MinnaLearn & University of Helsinki",
       image: "/images/certs/helsinki-elementsofai.svg",
-      url: "https://lnkd.in/dwnYctK3"
+      url: "https://certificates.mooc.fi/validate/dwks21en5lk"
     },
     {
       name: "Artificial Intelligence Fundamentals",
       organization: "IBM SkillsBuild",
       image: "/images/certs/ibm-skillsbuild.svg",
-      url: "https://lnkd.in/dxfK7RHm"
+      url: "https://skills.yourlearning.ibm.com/certificate/share/0c731712bdewogICJvYmplY3RJZCIgOiAiUExBTi03OTEzRUUxREIwMzAiLAogICJvYmplY3RUeXBlIiA6ICJBQ1RJVklUWSIsCiAgImxlYXJuZXJDTlVNIiA6ICI1NDQ0NzM4UkVHIgp98ff7d31344-10"
     },
     {
       name: "Introduction to Generative AI",
       organization: "Simplilearn",
       image: "/images/certs/simplilearn.svg",
-      url: "https://lnkd.in/dDThkfb3"
+      url: "https://www.linkedin.com/posts/abhijit-pandey-7314862a7_generativeai-artificialintelligence-linkedinlearning-share-7474748149811535872-ydy2/?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAEnuVJUBoW6ywtBugyY7TVZtlLPa2i1m1bM"
     },
     {
       name: "What Is Generative AI?",
       organization: "LinkedIn Learning",
       image: "/images/certs/linkedin-learning.svg",
-      url: "https://lnkd.in/dErDe6TT"
+      url: "https://www.linkedin.com/learning/certificates/2b9663191d4f309e6bbc3dd2fff21fc2c1ee4529c8d4104f06b0b4373886a177?trk=share_certificate"
     }
   ],
   resumeUrl: "#" // Placeholder

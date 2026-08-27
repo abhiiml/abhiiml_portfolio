@@ -1,0 +1,16 @@
+/* Source: https://reactbits.dev/animations/glare-hover */
+.glare-hover-container {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.glare-hover-glare {
+  position: absolute;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+  mix-blend-mode: screen;
+}
