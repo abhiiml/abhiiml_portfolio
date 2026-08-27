@@ -233,7 +233,7 @@ const SpecularButton = ({
     <Tag
       ref={btnRef}
       type={as === 'button' ? type : undefined}
-      disabled={disabled}
+      {...(as === 'button' ? { disabled } : {})}
       onClick={onClick}
       href={href}
       target={target}

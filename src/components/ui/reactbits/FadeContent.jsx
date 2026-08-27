@@ -49,7 +49,10 @@ const FadeContent = ({
     );
 
     return () => {
-      ScrollTrigger.getAll().forEach(t => t.kill());
+      ScrollTrigger.getById(el.id)?.kill();
+      ScrollTrigger.getAll()
+        .filter(t => t.trigger === el)
+        .forEach(t => t.kill());
     };
   }, [blur, duration, ease, delay, threshold, initialOpacity]);
 

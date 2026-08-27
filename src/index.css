@@ -51,7 +51,7 @@ img { display: block; max-width: 100%; }
 .location-pill { position: absolute; left: 0; top: 48%; width: 135px; min-height: 56px; border-radius: 0 30px 30px 0; background: var(--ink); display: flex; align-items: center; gap: 8px; padding: 12px 12px 12px 24px; font-size: 8px; line-height: 1.25; z-index: 5; }
 .location-dot { width: 5px; height: 5px; background: #fff; border-radius: 50%; align-self: flex-start; margin-top: 2px; }
 .globe { margin-left: auto; width: 35px; height: 35px; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgba(255,255,255,.2); font-size: 19px; }
-.hero-name { position: absolute; z-index: 4; left: -1.2%; right: -1.2%; bottom: 1.2%; white-space: nowrap; color: #fff; font: 400 clamp(70px, 14.2vw, 218px)/.82 var(--display); letter-spacing: -.075em; text-align: center; }
+.hero-name { position: absolute; z-index: 4; left: -1.2%; right: -1.2%; bottom: 5.5%; white-space: nowrap; color: #fff; font: 400 clamp(70px, 14.2vw, 218px)/.82 var(--display); letter-spacing: -.075em; text-align: center; }
 .hero-name span { display: inline-block; will-change: transform, opacity; }
 .hero-bottom-note { position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%); z-index: 6; display: flex; align-items: center; gap: 12px; font-size: 8px; color: rgba(255,255,255,.75); mix-blend-mode: difference; }
 .scroll-line { width: 42px; height: 1px; background: rgba(255,255,255,.5); transform-origin: left center; animation: scroll-pulse 2.4s ease-in-out infinite; }

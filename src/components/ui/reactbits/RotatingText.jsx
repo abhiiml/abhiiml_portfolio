@@ -31,11 +31,14 @@ const RotatingText = ({
     });
   };
 
+  const nextRef = useRef(next);
+  useEffect(() => { nextRef.current = next; });
+
   useEffect(() => {
     if (!auto) return;
-    const t = setInterval(next, rotationInterval);
+    const t = setInterval(() => nextRef.current(), rotationInterval);
     return () => clearInterval(t);
-  }, [rotationInterval, auto, texts.length]);
+  }, [rotationInterval, auto]);
 
   const currentText = texts[currentIndex];
 
